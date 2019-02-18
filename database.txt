@@ -1,0 +1,51 @@
+1. 
+"A Clockwork Orange" : string
+42 : number
+09/02/1945: NaN
+98.7: float
+$15.99: NaN
+
+2. A data base needs to be used when you want to store or manipulate any types of data. A text file helps the program to access.
+
+3. The difference between SQL and other programming language is that while SQL uses =, others use == .
+
+4. The pieces of a database system fit together at a high level by that every intersection of column and row, cell, holds a value regarding to that specific row/column.
+With a text file, the operating system will a) lock the file and one of the instances will simply fail to write, or b) the second instance will overwrite the data written by the first.
+
+5. 
+    Table: a spreadsheet structure that contains data with labeled rows and columns.
+    Row: make up a whole conceptual unit of data.
+    Column: hold the data that column represents.
+    Value: the intersection of a column and a row, cell.
+
+6. Three data types that can be used in a table: string, float, number.
+
+7. 
+     SELECT date, amount
+     FROM payments;
+     Grab the date and amount columm from payments table. Result: date column + amount column
+
+     SELECT amount
+     FROM payments
+     WHERE amount > 500;
+     Grab the amount cells from payments table where the amount is greater than 500
+     Result: amount cells that is greater than 500.
+
+     SELECT *
+     FROM payments
+     WHERE payee = 'Mega Foods';
+     Grab all columns that match payee is 'Mega Food'
+
+8. users
+
+SELECT email, sign-up date
+FROM users 
+WHERE user = 'DeAndre Data';
+
+SELECT id
+FROM users
+WHERE email = 'aleesia.algorithm@uw.edu';
+
+SELECT *
+FROM users
+WHERE id = 4;
