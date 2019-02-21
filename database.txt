@@ -1,9 +1,9 @@
 1. 
 "A Clockwork Orange" : string
-42 : number
-09/02/1945: NaN
+42 : integer
+09/02/1945: date
 98.7: float
-$15.99: NaN
+$15.99: float
 
 2. A data base needs to be used when you want to store or manipulate any types of data. A text file helps the program to access.
 
@@ -41,11 +41,25 @@ With a text file, the operating system will a) lock the file and one of the inst
 SELECT email, sign-up date
 FROM users 
 WHERE user = 'DeAndre Data';
+| email             | sign-up date                   |
+| ----------------- | ---------- |
+| datad@comcast.net | 2014-10-24 |
+
+
 
 SELECT id
 FROM users
 WHERE email = 'aleesia.algorithm@uw.edu';
+| id     |
+| ------ |
+| 2      |
+
+
+
 
 SELECT *
 FROM users
 WHERE id = 4;
+| id     | name        | email                | sign-up date |
+| ------ | ----------- | -------------------- | ------------ |
+| 7      | Tina Nguyen | thunguyen@liberty.ed | 2012-01-20   |
