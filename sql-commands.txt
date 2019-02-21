@@ -1,0 +1,120 @@
+1. 
+Commands for adding: INSERT INTO
+Commands for updating: UPDATE
+Commands for deleting: DELETE.
+
+2. 
+Structure of INSERT command:
+Insert into the database where the values are ...
+
+Structure of UPDATE command:
+Update to the database, set with the values where one value is ...
+
+Structure of DELETE command:
+Delete from the databse where the value is ...
+
+3.
+Datatypes can be used in the table: integer (age), float (money and cents), date (calendar), etc
+
+4. 
+Decide how to create a new table to hold a list of people invited to a wedding dinner. The table needs to have first and last names, whether they sent in their RSVP, the number of guests they are bringing, and the number of meals (1 for adults and 1/2 for children)
+
+First and last name: string
+Whether they sent in their RSVP: boolean
+Number of guests: integer
+Number of meals: float
+
+A command that creates the table to track the wedding dinner:
+CREATE TABLE dinner (
+    guests integer,
+    name text,
+    lastName text,
+    meals float,
+    rsvp boolean
+);
+
+A command that adds a column to track whether the guest sent a thank you card.
+INSERT INTO dinner (
+    thankYouCard boolean
+);
+
+A command to remove the column storing the number meals from the wedding table.
+ALTER TABLE dinner DROP COLUMN meals;
+
+A command that adds a column for table number.
+ALTER TABLE dinner ADD COLUMN tableNumber;
+
+A command that deletes the table numbers from the database.
+ALTER TABLE dinner DROP COLUMN tableNumber;
+
+5.
+A command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies
+CREATE TABLE books (
+    ISBN varchar,
+    title text,
+    author text,
+    genre text,
+    pubDate date
+    copies integer,
+    availableCopies integer
+);
+
+Find three books and add their information to the table.
+INSERT INTO books (ISBN, title, author, genre, pubDate, copies, availableCopies)
+VALUES
+('0199535566', 'Pride and Prejudice', 'Jane Austen', 2008, 'Fantasy', 18, 10);
+('0321651782', 'Chemistry: A Molecular Approach', 'Nivaldo J. Tro', 2010, 'Science' 8, 5);
+('1437701515', 'Physical Examination and Health Assessment, 6th Edition', Carolyn Jarvis', 2012, 'Science', 19, 14);
+
+Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
+UPDATE books SET availableCopies = 4 WHERE ISBN = '0321651782'
+
+Now one of the books has been added to the banned books list. Remove it from the table.
+DELETE * FROM books WHERE ISBN = '0199535566'
+
+6. A command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and its approximate miles from Earth
+CREATE TABLE spaceCrafts (
+    id integer,
+    name text,
+    yearLaunched date,
+    country text,
+    description text,
+    orbitingBody text,
+    operating boolean,
+    miles float
+)
+
+Add three non-Earth-orbiting satellites to the table
+A:INSERT INTO spaceCrafts(id, name, yearLaunched, country, description, orbitingBody, operating, miles)
+VALUES
+(324, 'Progress M1-1', 2000, 'Russia', 'It did repressurize it with 150 kg of nitrogen ', '98* longtitude' ,false, 4010 ),
+(436, 'Spooky', 2015, 'Germany' 'orbits around the asterod belts' 'asteroid belt' true, 4343240 ),
+(987, 'heat wave', 2018, 'USA', 'fist mission to Venus', 'Venus', false, 23343245);
+
+Remove one of the satellites from the table since it has just crashed into the planet.
+DELETE FROM spaceCrafts WHERE id = 324;
+
+Edit another satellite because it is no longer operating and change the value to reflect that
+UPDATE spaceCrafts SET operating = false WHERE id = 436;
+
+7. A command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in.
+CREATE TABLE email (
+    id integer,
+    subject text,
+    sender text,
+    recipients text,
+    body text,
+    timestamp timestamp,
+    read boolean,
+    chainId integer
+);
+
+Add three new emails to the inbox
+INSERT INTO email(id, subject, sender, recipients, body, read, chainId )
+VALUES 
+(123, 'Meeting', 'hubby', 'you', 'where can we meet?', true, 1),
+(124, 'Greeting', 'friend', 'you', 'how are you?', false, 2),
+(125, 'Project', 'boss', 'you', 'what do you mean?', true, 4)
+
+You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
+UPDATE email SET read = false WHERE id = 123;
