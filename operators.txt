@@ -1,0 +1,103 @@
+1. A generic SELECT statement
+    SELECT <column1, column2, ... *>
+    FROM <table1, table2 ...>
+    <optional: WHERE <condition>>
+
+2. Create a fun way to remember the order of operations in a SELECT statement, such as a mnemonic.
+SELECT FROM JOIN WHERE GROUP HAVING ORDER LIMIT
+Send From Jonh With Great Heart-to-heart Overwhelming Love
+
+3. Given this dogs table, write queries to select the following pieces of data:
+
+Display the name, gender, and age of all dogs that are part Labrador.
+SELECT name, gender, age
+FROM dogs
+WHERE breed LIKE '%labrador';
+
+Display the ids of all dogs that are under 1 year old.
+SELECT id 
+FROM dogs
+WHERE age < 1;
+
+Display the name and age of all dogs that are female and over 35lbs.
+SELECT name, age
+FROM dogs
+WHERE gender = 'Female'
+AND weight > 35 ;
+
+Display all of the information about all dogs that are not Shepherd mixes.
+SELECT *
+FROM dogs
+WHERE breed NOT LIKE 'Shepherd';
+
+Display the id, age, weight, and breed of all dogs that are either over 60lbs or Great Danes.
+SELECT id, age, weight, breed 
+FROM dogs
+WHERE weight > 60 
+OR breed = 'Great Danes';
+
+4. Given this cats table, what records are returned from these queries?
+
+SELECT name, adoption_date FROM cats; 
+=> 
+    name      | adoption_date
+    ----------|--------------
+    Mushi     |2016-01-09
+    Seashell  |2016-01-09
+    Azul      |2016-01-11
+    Victoire  |2016-01-11
+    Nala      |2016-01-12
+
+
+SELECT name, age FROM cats; 
+=> 
+    name      | age
+    ----------|---------
+    Mushi     |1
+    Seashell  |7
+    Azul      |3
+    Victoire  |7
+    Nala      |1
+
+5. Display all the information about all of the available cats.
+SELECT *
+FROM cats;
+
+Display the name and sex of all cats who are 7 years old.
+SELECT name, sex
+FROM cats
+WHERE age > 7;
+
+Find all of the names of the cats, so you don’t choose duplicate names for new cats.
+SELECT name
+FROM cats;
+
+6. List each comparison operator and explain when you would use it
+== : equality operator, can used for strings and numbers , check if what teacher says is what student writes down
+!= : inequality operator, can used for strings and numbers, check if number 2 is equal to word "three"
+=== : strict equality operator, only compare the same data type, check if you have the ticket to see a certain movie
+!== : strict inequality operator, only compare the same data type , check if you have 2 is equal to "2"
+>= : greater or equal, check if you are older than your younger sister
+<= : less or equal, check if you have less than $100
+<> : greater or less than, check if you are older or younger than a randomn pedestrian
+
+7.
+SELECT name FROM cats WHERE gender = ‘F’;
+    name      
+    ----------   
+    Seashell   
+    Nala      
+
+SELECT name FROM cats WHERE age <> 3;
+    name      
+    ----------
+    Mushi     
+    Seashell     
+    Victoire  
+    Nala      
+
+SELECT ID FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
+    id     
+    ----------
+    3
+    4
