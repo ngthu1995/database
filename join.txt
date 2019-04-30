@@ -77,8 +77,7 @@ WHERE books.title = 'Advanced Potion-Making';
 
 List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
 
-SELECT p.id, p.name, t.isbn, b.title, t.checked_out_date, t.checked_in_date
-FROM patrons AS p
-RIGHT OUTER JOIN transactions AS t ON p.id = t.patron_id
-RIGHT OUTER JOIN books AS b ON b.isbn = t.isbn
-ORDER BY p.id;
+SELECT patrons.id, patrons.name, books.title
+FROM transactions as tr
+JOIN patrons ON tr.id = patrons.id
+JOIN books ON books.isbn = tr.isbn;
